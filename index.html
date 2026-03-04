@@ -4,70 +4,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Köye Göç ve Emlak Rehberi | Arazi, Tapu ve Köy Yaşamı</title>
-<meta name="description" content="Köye göç etmek isteyenler için arazi analizi, tapu riskleri, plansız alan yönetmeliği ve gerçek köy yaşam rehberi.">
-<meta name="keywords" content="köye göç, tarla almak, arsa rehberi, hisseli tapu, köy evi yapmak, arazi analizi, emlak rehberi">
+<title>Köye Göç ve Emlak Rehberi | Arazi ve Köy Yaşamı</title>
+<meta name="description" content="Köye göç etmek isteyenler için arazi analizi, tapu riskleri ve köy yaşam rehberi.">
+<meta name="keywords" content="köye göç, tarla almak, arsa rehberi, hisseli tapu, köy evi yapmak">
 <meta name="author" content="Köye Göç Rehberi">
 
-<!-- Open Graph -->
 <meta property="og:title" content="Köye Göç ve Emlak Rehberi">
-<meta property="og:description" content="Arazi analizi, tapu riskleri ve köy yaşam rehberi tek uygulamada.">
+<meta property="og:description" content="Arazi analizi ve köy yaşam rehberi tek uygulamada.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="og-cover.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#0f1a13;color:#f0fdf4;overflow-x:hidden}
+body{background:#0e1a12;color:#f0fdf4}
 
-/* Background Gradient */
-body::before{
-content:"";
-position:fixed;
+/* Banner */
+.hero-banner{
 width:100%;
-height:100%;
-background:linear-gradient(to bottom,#0f1a13,#1a2e1f,#243c2b);
-z-index:-2;
-}
-
-/* Floating Leaves */
-.leaf{
-position:fixed;
-top:-50px;
-width:30px;
-height:30px;
-background:radial-gradient(circle,#4ade80 40%,transparent 70%);
-border-radius:50%;
-opacity:.4;
-animation:fall linear infinite;
-z-index:-1;
-}
-@keyframes fall{
-0%{transform:translateY(-50px) translateX(0) rotate(0deg)}
-100%{transform:translateY(110vh) translateX(100px) rotate(360deg)}
-}
-
-/* Hero */
-header{
-height:100vh;
 display:flex;
-flex-direction:column;
 justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+background:#0e1a12;
+padding-top:40px;
 }
-header h1{
-font-size:3rem;
+.hero-banner img{
+width:100%;
+max-width:1100px;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* Hero Text */
+.hero-text{
+text-align:center;
+padding:60px 20px;
+}
+.hero-text h1{
+font-size:2.5rem;
 font-weight:700;
-background:linear-gradient(90deg,#4ade80,#86efac);
+background:linear-gradient(90deg,#4ade80,#bbf7d0);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
-header p{
+.hero-text p{
 margin-top:20px;
-max-width:650px;
-opacity:.9;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
 }
 .play-btn{
 margin-top:35px;
@@ -79,16 +63,17 @@ color:white;
 font-weight:600;
 cursor:pointer;
 transition:.3s;
-font-size:1rem;
 }
 .play-btn:hover{
 transform:scale(1.08);
-box-shadow:0 0 20px #4ade80;
+box-shadow:0 0 25px #4ade80;
 }
 
-/* Features */
+/* Sections */
 section{padding:100px 20px;text-align:center}
 h2{margin-bottom:50px;font-size:2rem}
+
+/* Features */
 .features{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -107,90 +92,69 @@ background:rgba(255,255,255,.1);
 transform:translateY(-10px);
 }
 
-/* Screens */
+/* Screenshot Slider */
 .slider{
 max-width:400px;
 margin:auto;
 overflow:hidden;
 border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,.4);
 }
 .slides{
 display:flex;
-transition:transform .5s ease;
+transition:transform .6s ease;
 }
 .slide{
 min-width:100%;
-position:relative;
 }
 .slide img{
 width:100%;
-border-radius:20px;
-}
-.slide-number{
-position:absolute;
-top:20px;
-left:20px;
-font-size:3rem;
-font-weight:700;
-opacity:.5;
+display:block;
 }
 
-/* Footer */
+/* Village Silhouette */
+.village{
+width:100%;
+opacity:.08;
+margin-top:-50px;
+}
+
 footer{
 padding:40px;
 text-align:center;
 opacity:.6;
 }
 
+/* Responsive */
 @media(max-width:768px){
-header h1{font-size:2.2rem}
+.hero-text h1{font-size:2rem}
+.slider{max-width:90%}
 }
 </style>
 </head>
 
 <body>
 
-<!-- Leaves -->
-<script>
-for(let i=0;i<15;i++){
-let leaf=document.createElement("div");
-leaf.classList.add("leaf");
-leaf.style.left=Math.random()*100+"vw";
-leaf.style.animationDuration=(5+Math.random()*10)+"s";
-leaf.style.opacity=Math.random();
-document.body.appendChild(leaf);
-}
-</script>
+<div class="hero-banner">
+<img src="images/rehber/hero-banner.jpg" alt="Köye Göç ve Emlak Rehberi">
+</div>
 
-<header>
+<div class="hero-text">
 <h1>Köye Göç ve Emlak Rehberi</h1>
-<p>Köy hayatına geçiş yapmak isteyenler için hazırlanmış gerçek deneyim rehberi. 
-Arazi analizi, tapu riskleri ve bilinmeyen detaylar tek yerde.</p>
+<p>Arazi alırken hata yapmamak ve köy yaşamına bilinçli geçmek isteyenler için hazırlanmış rehber uygulama.</p>
 
 <a href="https://play.google.com/store/apps/details?id=com.koyegoc.rehber" target="_blank">
 <button class="play-btn">Google Play'de İndir</button>
 </a>
-</header>
+</div>
 
 <section>
 <h2>Öne Çıkan Özellikler</h2>
 <div class="features">
-<div class="feature">
-<h3>Arazi Analizi</h3>
-<p>Eğim, yol, su ve toprak yapısına göre değerlendirme rehberi.</p>
-</div>
-<div class="feature">
-<h3>Tapu Risk Kontrolü</h3>
-<p>Hisseli tapu, şerh ve yolu olmayan araziler için uyarılar.</p>
-</div>
-<div class="feature">
-<h3>Plansız Alan Bilgileri</h3>
-<p>Yapılaşma kuralları ve yönetmelik özetleri.</p>
-</div>
-<div class="feature">
-<h3>Köy Yaşamı Rehberi</h3>
-<p>Komşuluk, hayvancılık, altyapı ve bilinmeyen riskler.</p>
-</div>
+<div class="feature"><h3>Arazi Analizi</h3><p>Eğim, yol ve toprak yapısı değerlendirmesi.</p></div>
+<div class="feature"><h3>Tapu Riskleri</h3><p>Hisseli tapu ve şerh kontrol rehberi.</p></div>
+<div class="feature"><h3>İmar Bilgileri</h3><p>Plansız alan yapı kuralları.</p></div>
+<div class="feature"><h3>Köy Yaşamı</h3><p>Komşuluk, altyapı ve bilinmeyen detaylar.</p></div>
 </div>
 </section>
 
@@ -217,6 +181,10 @@ Arazi analizi, tapu riskleri ve bilinmeyen detaylar tek yerde.</p>
 </div>
 </div>
 </section>
+
+<svg class="village" viewBox="0 0 1440 200">
+<path fill="#bbf7d0" d="M0,150 L200,120 L300,140 L450,110 L600,150 L750,100 L900,140 L1050,120 L1200,150 L1440,130 L1440,200 L0,200 Z"></path>
+</svg>
 
 <footer>
 © 2026 Köye Göç Rehberi
