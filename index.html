@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Köye Göç ve Emlak Rehberi | Arazi, Tapu ve Köy Yaşamı</title>
+<meta name="description" content="Köye göç etmek isteyenler için arazi analizi, tapu riskleri, plansız alan yönetmeliği ve gerçek köy yaşam rehberi.">
+<meta name="keywords" content="köye göç, tarla almak, arsa rehberi, hisseli tapu, köy evi yapmak, arazi analizi, emlak rehberi">
+<meta name="author" content="Köye Göç Rehberi">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Köye Göç ve Emlak Rehberi">
+<meta property="og:description" content="Arazi analizi, tapu riskleri ve köy yaşam rehberi tek uygulamada.">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0f1a13;color:#f0fdf4;overflow-x:hidden}
+
+/* Background Gradient */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom,#0f1a13,#1a2e1f,#243c2b);
+z-index:-2;
+}
+
+/* Floating Leaves */
+.leaf{
+position:fixed;
+top:-50px;
+width:30px;
+height:30px;
+background:radial-gradient(circle,#4ade80 40%,transparent 70%);
+border-radius:50%;
+opacity:.4;
+animation:fall linear infinite;
+z-index:-1;
+}
+@keyframes fall{
+0%{transform:translateY(-50px) translateX(0) rotate(0deg)}
+100%{transform:translateY(110vh) translateX(100px) rotate(360deg)}
+}
+
+/* Hero */
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+header h1{
+font-size:3rem;
+font-weight:700;
+background:linear-gradient(90deg,#4ade80,#86efac);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+header p{
+margin-top:20px;
+max-width:650px;
+opacity:.9;
+}
+.play-btn{
+margin-top:35px;
+padding:16px 35px;
+border:none;
+border-radius:50px;
+background:#22c55e;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+font-size:1rem;
+}
+.play-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px #4ade80;
+}
+
+/* Features */
+section{padding:100px 20px;text-align:center}
+h2{margin-bottom:50px;font-size:2rem}
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1100px;
+margin:auto;
+}
+.feature{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:20px;
+transition:.4s;
+}
+.feature:hover{
+background:rgba(255,255,255,.1);
+transform:translateY(-10px);
+}
+
+/* Screens */
+.slider{
+max-width:1000px;
+margin:auto;
+overflow:hidden;
+border-radius:20px;
+}
+.slides{
+display:flex;
+transition:transform .6s ease;
+}
+.slide{
+min-width:100%;
+position:relative;
+}
+.slide img{
+width:100%;
+border-radius:20px;
+}
+.slide-number{
+position:absolute;
+top:20px;
+left:20px;
+font-size:3rem;
+font-weight:700;
+opacity:.5;
+}
+
+/* Footer */
+footer{
+padding:40px;
+text-align:center;
+opacity:.6;
+}
+
+@media(max-width:768px){
+header h1{font-size:2.2rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Leaves -->
+<script>
+for(let i=0;i<15;i++){
+let leaf=document.createElement("div");
+leaf.classList.add("leaf");
+leaf.style.left=Math.random()*100+"vw";
+leaf.style.animationDuration=(5+Math.random()*10)+"s";
+leaf.style.opacity=Math.random();
+document.body.appendChild(leaf);
+}
+</script>
+
+<header>
+<h1>Köye Göç ve Emlak Rehberi</h1>
+<p>Köy hayatına geçiş yapmak isteyenler için hazırlanmış gerçek deneyim rehberi. 
+Arazi analizi, tapu riskleri ve bilinmeyen detaylar tek yerde.</p>
+
+<a href="https://play.google.com/store/apps/details?id=com.koyegoc.rehber" target="_blank">
+<button class="play-btn">Google Play'de İndir</button>
+</a>
+</header>
+
+<section>
+<h2>Öne Çıkan Özellikler</h2>
+<div class="features">
+<div class="feature">
+<h3>Arazi Analizi</h3>
+<p>Eğim, yol, su ve toprak yapısına göre değerlendirme rehberi.</p>
+</div>
+<div class="feature">
+<h3>Tapu Risk Kontrolü</h3>
+<p>Hisseli tapu, şerh ve yolu olmayan araziler için uyarılar.</p>
+</div>
+<div class="feature">
+<h3>Plansız Alan Bilgileri</h3>
+<p>Yapılaşma kuralları ve yönetmelik özetleri.</p>
+</div>
+<div class="feature">
+<h3>Köy Yaşamı Rehberi</h3>
+<p>Komşuluk, hayvancılık, altyapı ve bilinmeyen riskler.</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Uygulama Ekranları</h2>
+<div class="slider">
+<div class="slides" id="slides">
+
+<div class="slide"><span class="slide-number">01</span><img src="images/rehber/01.jpeg"></div>
+<div class="slide"><span class="slide-number">02</span><img src="images/rehber/02.jpeg"></div>
+<div class="slide"><span class="slide-number">03</span><img src="images/rehber/03.jpeg"></div>
+<div class="slide"><span class="slide-number">04</span><img src="images/rehber/04.jpeg"></div>
+<div class="slide"><span class="slide-number">05</span><img src="images/rehber/05.jpeg"></div>
+<div class="slide"><span class="slide-number">06</span><img src="images/rehber/06.jpeg"></div>
+
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Köye Göç Rehberi
+</footer>
+
+<script>
+const slides=document.getElementById("slides");
+let index=0;
+setInterval(()=>{
+index=(index+1)%6;
+slides.style.transform=`translateX(-${index*100}%)`;
+},5000);
+</script>
+
+</body>
+</html>
