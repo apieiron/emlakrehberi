@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -12,7 +13,7 @@
 <meta property="og:title" content="Köye Göç ve Emlak Rehberi">
 <meta property="og:description" content="Arazi analizi ve köy yaşam rehberi tek uygulamada.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="og-cover.jpg">
+<meta property="og:image" content="images/hero-banner.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -52,6 +53,7 @@ margin-top:20px;
 max-width:700px;
 margin-left:auto;
 margin-right:auto;
+opacity:.9;
 }
 .play-btn{
 margin-top:35px;
@@ -92,31 +94,64 @@ background:rgba(255,255,255,.1);
 transform:translateY(-10px);
 }
 
-/* Screenshot Slider */
+/* Slider */
 .slider{
-max-width:400px;
+max-width:420px;
 margin:auto;
 overflow:hidden;
-border-radius:20px;
-box-shadow:0 10px 40px rgba(0,0,0,.4);
+border-radius:24px;
+box-shadow:0 15px 50px rgba(0,0,0,.5);
+position:relative;
+background:#000;
 }
+
 .slides{
 display:flex;
-transition:transform .6s ease;
+transition:transform .4s ease;
 }
+
 .slide{
 min-width:100%;
+user-select:none;
 }
+
 .slide img{
 width:100%;
 display:block;
+pointer-events:none;
 }
 
-/* Village Silhouette */
-.village{
+/* Thumbnails */
+.thumbnails{
+display:flex;
+gap:10px;
+margin-top:20px;
+overflow-x:auto;
+padding-bottom:10px;
+justify-content:center;
+}
+
+.thumbnail{
+width:60px;
+height:100px;
+flex-shrink:0;
+border-radius:10px;
+overflow:hidden;
+opacity:.5;
+cursor:pointer;
+transition:.3s;
+border:2px solid transparent;
+}
+
+.thumbnail img{
 width:100%;
-opacity:.08;
-margin-top:-50px;
+height:100%;
+object-fit:cover;
+}
+
+.thumbnail.active{
+opacity:1;
+border:2px solid #4ade80;
 }
 
 footer{
@@ -125,7 +160,6 @@ text-align:center;
 opacity:.6;
 }
 
-/* Responsive */
 @media(max-width:768px){
 .hero-text h1{font-size:2rem}
 .slider{max-width:90%}
@@ -160,43 +194,84 @@ opacity:.6;
 
 <section>
 <h2>Uygulama Ekranları</h2>
-<div class="slider">
-<div class="slides" id="slides">
-<div class="slide"><span class="slide-number">01</span><img src="images/rehber/00.jpeg"></div>
-<div class="slide"><span class="slide-number">01</span><img src="images/rehber/01.jpeg"></div>
-<div class="slide"><span class="slide-number">02</span><img src="images/rehber/02.jpeg"></div>
-<div class="slide"><span class="slide-number">03</span><img src="images/rehber/03.jpeg"></div>
-<div class="slide"><span class="slide-number">04</span><img src="images/rehber/04.jpeg"></div>
-<div class="slide"><span class="slide-number">05</span><img src="images/rehber/05.jpeg"></div>
-<div class="slide"><span class="slide-number">06</span><img src="images/rehber/06.jpeg"></div>
-<div class="slide"><span class="slide-number">01</span><img src="images/rehber/07.jpeg"></div>
-<div class="slide"><span class="slide-number">01</span><img src="images/rehber/08.jpeg"></div>
-<div class="slide"><span class="slide-number">02</span><img src="images/rehber/09.jpeg"></div>
-<div class="slide"><span class="slide-number">03</span><img src="images/rehber/10.jpeg"></div>
-<div class="slide"><span class="slide-number">04</span><img src="images/rehber/11.jpeg"></div>
-<div class="slide"><span class="slide-number">05</span><img src="images/rehber/12.jpeg"></div>
-<div class="slide"><span class="slide-number">06</span><img src="images/rehber/13.jpeg"></div>
-<div class="slide"><span class="slide-number">05</span><img src="images/rehber/14.jpeg"></div>
-<div class="slide"><span class="slide-number">06</span><img src="images/rehber/15.jpeg"></div>
-</div>
-</div>
-</section>
 
-<svg class="village" viewBox="0 0 1440 200">
-<path fill="#bbf7d0" d="M0,150 L200,120 L300,140 L450,110 L600,150 L750,100 L900,140 L1050,120 L1200,150 L1440,130 L1440,200 L0,200 Z"></path>
-</svg>
+<div class="slider" id="slider">
+<div class="slides" id="slides">
+<div class="slide"><img src="images/rehber/00.jpeg"></div>
+<div class="slide"><img src="images/rehber/01.jpeg"></div>
+<div class="slide"><img src="images/rehber/02.jpeg"></div>
+<div class="slide"><img src="images/rehber/03.jpeg"></div>
+<div class="slide"><img src="images/rehber/04.jpeg"></div>
+<div class="slide"><img src="images/rehber/05.jpeg"></div>
+</div>
+</div>
+
+<div class="thumbnails" id="thumbnails">
+<div class="thumbnail active"><img src="images/rehber/00.jpeg"></div>
+<div class="thumbnail"><img src="images/rehber/01.jpeg"></div>
+<div class="thumbnail"><img src="images/rehber/02.jpeg"></div>
+<div class="thumbnail"><img src="images/rehber/03.jpeg"></div>
+<div class="thumbnail"><img src="images/rehber/04.jpeg"></div>
+<div class="thumbnail"><img src="images/rehber/05.jpeg"></div>
+</div>
+
+</section>
 
 <footer>
 © 2026 Köye Göç Rehberi
 </footer>
 
 <script>
-const slides=document.getElementById("slides");
-let index=0;
-setInterval(()=>{
-index=(index+1)%6;
-slides.style.transform=`translateX(-${index*100}%)`;
-},5000);
+const slides = document.getElementById("slides");
+const thumbnails = document.querySelectorAll(".thumbnail");
+const slider = document.getElementById("slider");
+
+let currentIndex = 0;
+let startX = 0;
+let isDragging = false;
+
+function updateSlider(index){
+currentIndex = index;
+slides.style.transform = `translateX(-${index * 100}%)`;
+thumbnails.forEach(t => t.classList.remove("active"));
+thumbnails[index].classList.add("active");
+}
+
+thumbnails.forEach((thumb, index)=>{
+thumb.addEventListener("click", ()=>{
+updateSlider(index);
+});
+});
+
+slider.addEventListener("mousedown", e=>{
+isDragging = true;
+startX = e.pageX;
+});
+
+slider.addEventListener("mouseup", e=>{
+if(!isDragging) return;
+let diff = e.pageX - startX;
+handleSwipe(diff);
+isDragging = false;
+});
+
+slider.addEventListener("touchstart", e=>{
+startX = e.touches[0].clientX;
+});
+
+slider.addEventListener("touchend", e=>{
+let diff = e.changedTouches[0].clientX - startX;
+handleSwipe(diff);
+});
+
+function handleSwipe(diff){
+if(diff > 50 && currentIndex > 0){
+updateSlider(currentIndex - 1);
+}
+if(diff < -50 && currentIndex < thumbnails.length - 1){
+updateSlider(currentIndex + 1);
+}
+}
 </script>
 
 </body>
