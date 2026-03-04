@@ -51,7 +51,6 @@ margin-left:auto;
 margin-right:auto;
 opacity:.9;
 }
-
 .play-btn{
 margin-top:35px;
 padding:16px 35px;
@@ -68,11 +67,30 @@ transform:scale(1.08);
 box-shadow:0 0 30px #4ade80;
 }
 
-/* Section */
+/* Sections */
 section{padding:100px 20px;text-align:center}
 h2{margin-bottom:50px;font-size:2rem}
 
-/* iPhone Mockup */
+/* Features */
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1100px;
+margin:auto;
+}
+.feature{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:20px;
+transition:.4s;
+}
+.feature:hover{
+background:rgba(255,255,255,.1);
+transform:translateY(-10px);
+}
+
+/* iPhone Frame */
 .phone-frame{
 width:430px;
 max-width:95%;
@@ -90,20 +108,12 @@ border-radius:28px;
 background:#000;
 position:relative;
 }
-
 .slides{
 display:flex;
 transition:transform .5s ease;
 }
-
-.slide{
-min-width:100%;
-}
-
-.slide img{
-width:100%;
-display:block;
-}
+.slide{min-width:100%;}
+.slide img{width:100%;display:block;}
 
 /* Thumbnails */
 .thumbnails{
@@ -113,7 +123,6 @@ margin-top:20px;
 overflow-x:auto;
 justify-content:center;
 }
-
 .thumbnail{
 width:60px;
 height:100px;
@@ -124,19 +133,16 @@ cursor:pointer;
 transition:.3s;
 border:2px solid transparent;
 }
-
 .thumbnail img{
 width:100%;
 height:100%;
 object-fit:cover;
 }
-
 .thumbnail.active{
 opacity:1;
 border:2px solid #4ade80;
 }
 
-/* Animations */
 @keyframes fadeIn{
 from{opacity:0;transform:translateY(30px)}
 to{opacity:1;transform:translateY(0)}
@@ -167,49 +173,17 @@ opacity:.6;
 <button class="play-btn">Google Play'de İndir</button>
 </a>
 </div>
-<section> 
-  <h2>Öne Çıkan Özellikler</h2>
-  <div class="features">
-    <div class="feature">
-      <h3>Arazi Analizi</h3>
-      <p>Eğim, yol ve toprak yapısı değerlendirmesi.</p>
-    </div> 
-    <div class="feature">
-      <h3>Tapu Riskleri</h3>
-      <p>Hisseli tapu ve şerh kontrol rehberi.</p>
-    </div> 
-    <div class="feature">
-      <section>
-        <h2>Öne Çıkan Özellikler</h2>
-        <div class="features">
-          <div class="feature">
-            <h3>Arazi Analizi</h3>
-            <p>Eğim, yol ve toprak yapısı değerlendirmesi.</p>
-          </div>
-          <div class="feature">
-            <h3>Tapu Riskleri</h3>
-            <p>Hisseli tapu ve şerh kontrol rehberi.</p>
-          </div> 
-          <div class="feature">
-            <h3>İmar Bilgileri</h3>
-            <p>Plansız alan yapı kuralları.</p>
-          </div> 
-          <div class="feature">
-            <h3>Köy Yaşamı</h3>
-            <p>Komşuluk, altyapı ve bilinmeyen detaylar.</p>
-          </div> 
-        </div>
-      </section>
-      <h3>İmar Bilgileri</h3>
-      <p>Plansız alan yapı kuralları.</p>
-    </div>
-    <div class="feature">
-      <h3>Köy Yaşamı</h3>
-      <p>Komşuluk, altyapı ve bilinmeyen detaylar.</p>
-    </div>
-  </div>
+
+<section>
+<h2>Öne Çıkan Özellikler</h2>
+<div class="features">
+<div class="feature"><h3>Arazi Analizi</h3><p>Eğim, yol ve toprak yapısı değerlendirmesi.</p></div>
+<div class="feature"><h3>Tapu Riskleri</h3><p>Hisseli tapu ve şerh kontrol rehberi.</p></div>
+<div class="feature"><h3>İmar Bilgileri</h3><p>Plansız alan yapı kuralları.</p></div>
+<div class="feature"><h3>Köy Yaşamı</h3><p>Komşuluk, altyapı ve bilinmeyen detaylar.</p></div>
+</div>
 </section>
-  
+
 <section>
 <h2>Uygulama Ekranları</h2>
 
@@ -267,10 +241,6 @@ function startAutoSlide(){
 autoSlide = setInterval(()=>{
 if(!isInteracting) nextSlide();
 },4000);
-}
-
-function stopAutoSlide(){
-clearInterval(autoSlide);
 }
 
 thumbnails.forEach((thumb,index)=>{
